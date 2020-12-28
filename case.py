@@ -51,6 +51,7 @@ class Case(object):
         self.gauche = 1
         self.droit = 1
         self.contenu = 0
+        return self
 
     def toVide(self):  # Change la case en case vide
         self.haut = 0
@@ -58,6 +59,7 @@ class Case(object):
         self.gauche = 0
         self.droit = 0
         self.contenu = 0
+        return self
 
     def toDroite(self):  # change l'orientation de la case vers la droite
         changement = self.haut
@@ -65,6 +67,7 @@ class Case(object):
         self.droit = self.bas
         self.bas = self.gauche
         self.gauche = changement
+        return self
 
     def toGauche(self):  # change l'orientation de la case vers la gauche
         changement = self.haut
@@ -72,6 +75,7 @@ class Case(object):
         self.gauche = self.bas
         self.bas = self.droit
         self.droit = changement
+        return self
 
 
 caseVide = Case(0, 0, 0, 0, Mission.vide)

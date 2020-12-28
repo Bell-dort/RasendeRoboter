@@ -1,5 +1,4 @@
 import tkinter
-import case
 import plaque
 
 #Fenetre principale
@@ -9,7 +8,7 @@ window.wm_minsize(500, 500)
 fenetre = tkinter.Frame(window) #crée une sous-fenetre dans la fentre
 
 #---fenetre nécessaire pour tester switch90()-----------------
-#fenetre2 = tkinter.Frame(window)
+fenetre2 = tkinter.Frame(window)
 
 class DrawCase(tkinter.Canvas):     #classe DrawCase dérivée de Canvas (permet de créer l'affichage des case)
     #parametres des cases
@@ -41,12 +40,13 @@ fenetre.pack(expand = True)
 
 
 # -------------te montre ce qu'il faut corriger pour la méthode switch90()
-# plaque.plaque1.switch90()
-#
-# for i in range(0, 8):
-#     for j in range(0, 8):
-#         DrawCase(fenetre2, plaque.plaque1.element[j][i]).grid(row = i, column = j)
-#
-# fenetre2.pack(expand, pady = 5)
+plaque.plaque1.switch90()
+
+for i in range(0, 8):
+    for j in range(0, 8):
+        print("i=" + str(i) + " j=" + str(j))
+        DrawCase(fenetre2, plaque.plaque1.element[j][i]).grid(row = i, column = j)
+
+fenetre2.pack(expand = True, pady = 5)
 
 window.mainloop()   #lance la fenetre
