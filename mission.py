@@ -1,32 +1,32 @@
-class mission(object):
-	couleur = ' '
-	symbole = ' '
+class mission():
+
 	"""docstring for mission"""
 	def __init__(self, couleur, symbole): #constructeur mission
 		self.couleur = couleur
 		self.symbole = symbole
 
-	def accessContenu(self):
-		return self.symbole + " " + self.couleur
+	# def accessContenu(self):
+	# 	return self.symbole + " " + self.couleur
 
-triangleRouge = mission("rouge", "triangle")
-triangleBleu = mission("bleu", "triangle")
-triangleVert = mission("vert", "triangle")
-triangleJaune = mission("jaune", "triangle")
+triangleRouge = mission("red", "triangle")
+triangleBleu = mission("blue", "triangle")
+triangleVert = mission("green", "triangle")
+triangleJaune = mission("yellow", "triangle")
 
-cercleRouge = mission("rouge", "cercle")
-cercleBleu = mission("bleu", "cercle")
-cercleVert = mission("vert", "cercle")
-cercleJaune = mission("jaune", "cercle")
+cercleRouge = mission("red", "cercle")
+cercleBleu = mission("blue", "cercle")
+cercleVert = mission("green", "cercle")
+cercleJaune = mission("yellow", "cercle")
 
-carreRouge = mission("rouge", "carre")
-carreBleu = mission("bleu", "carre")
-carreVert = mission("vert", "carre")
-carreJaune = mission("jaune", "carre")
+carreRouge = mission("red", "carre")
+carreBleu = mission("blue", "carre")
+carreVert = mission("green", "carre")
+carreJaune = mission("yellow", "carre")
 
-losangeRouge = mission("rouge", "losange")
-losangeBleu = mission("bleu", "losange")
-losangeVert = mission("vert", "losange")
-losangeJaune = mission("jaune", "losange")
+losangeRouge = mission("red", "losange")
+losangeBleu = mission("blue", "losange")
+losangeVert = mission("green", "losange")
+losangeJaune = mission("yellow", "losange")
 
-multiCouleur = mission("multicouleur", " ")
+multicolore = mission("purple", "")
+vide = mission("", "")

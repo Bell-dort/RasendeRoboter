@@ -2,7 +2,7 @@ import numpy as np
 from case import *
 
 
-class plaque(object):
+class Plaque(object):
     """docstring for plaque"""
     element = np.empty((8, 8), dtype=Case)
 
@@ -32,7 +32,8 @@ class plaque(object):
             for j in range(8):
                 self.element[i][j] = tableauRemplacant[7 - j][i]
         return self
-plaque1 = plaque(np.array(
+
+plaque1 = Plaque(np.array(
     [np.array([caseVide, caseVide, caseVide, caseVide, caseMurBas1, caseMurHaut1,caseMurDroit1, caseVide, caseVide], dtype=Case),  # 0
      np.array([caseVide, caseVide, caseVide, caseVide, caseVide, caseMurBas1, caseCarreJaune, caseVide], dtype=Case),  # 1
      np.array([caseVide, caseVide, caseVide, caseMurBas1, caseCercleVert, caseVide, caseVide, caseVide], dtype=Case),  # 2
@@ -43,7 +44,7 @@ plaque1 = plaque(np.array(
      np.array([caseVide, caseVide, caseVide, caseVide, caseVide, caseTriangleRouge, caseMurHaut1, caseVide], dtype=Case)], dtype=np.ndarray))  # 7
         #essaie de spécifier les types, ça évite des warning ou erreur ex : np.array([.....], dtype=<type>)
 
-plaque2 = plaque(
+plaque2 = Plaque(
     np.array([np.array([caseVide, caseVide, caseVide, caseMurDroit2, caseVide, caseVide, caseVide, caseVide], dtype=Case),
               np.array([caseMurDroit2, caseVide, caseMurBas2, caseCarreBleu, caseVide, caseVide, caseVide, caseVide], dtype=Case),
               np.array([caseMurGauche2, caseVide, caseVide, caseVide, caseVide, caseVide, caseVide, caseVide], dtype=Case),
@@ -53,7 +54,7 @@ plaque2 = plaque(
               np.array([caseVide, caseMurGauche2, caseVide, caseMurBas2, caseMurHautDroit2, caseVide, caseVide, caseVide], dtype=Case),
               np.array([caseVide, caseMurBas2, caseMurHaut2, caseVide, caseMurGauche2, caseVide, caseVide, caseVide], dtype=Case)], dtype=np.ndarray))
 
-plaque3 = plaque(
+plaque3 = Plaque(
     np.array([np.array([caseVide, caseVide, caseMurBas3, caseMurHaut3, caseVide, caseVide, caseVide, caseVide], dtype=Case),
               np.array([caseVide, caseVide, caseVide, caseVide, caseMurBas3, caseLosangeRouge, caseVide, caseVide], dtype=Case),
               np.array([caseVide, caseVide, caseVide, caseVide, caseVide, caseMurGauche3, caseVide, caseVide], dtype=Case),
@@ -63,7 +64,7 @@ plaque3 = plaque(
               np.array([caseVide, caseMurBas3, caseCercleBleu, caseVide, caseVide, caseVide, caseVide, caseVide], dtype=Case),
               np.array([caseVide, caseVide, caseVide, caseMurBas3, caseMulticouleur, caseVide, caseVide, caseVide], dtype=Case)], dtype=np.ndarray))
 
-plaque4 = plaque(
+plaque4 = Plaque(
     np.array([np.array([caseVide, caseVide, caseVide, caseVide, caseVide, caseVide, caseVide, caseVide], dtype=Case),
               np.array([caseVide, caseVide, caseVide, caseCercleJaune, caseMurHaut4, caseVide, caseMurDroit4, caseVide], dtype=Case),
               np.array([caseVide, caseVide, caseVide, caseMurGauche4, caseVide, caseMurBas4, caseLosangeVert, caseVide], dtype=Case),

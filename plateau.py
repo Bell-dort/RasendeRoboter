@@ -96,4 +96,10 @@ class plateau():
         self.plat[8][9] = caseMurHaut
         self.plat[9][8] = caseMurGauche
 
+    def coordMission(self, mission):
+        for i in range(16):
+            for j in range(16):
+                if self.plat[i][j].mission == mission:
+                    return (i,j)
+
 plateauJeu = plateau(plaque.plaque1,plaque.plaque2,plaque.plaque3,plaque.plaque4)
