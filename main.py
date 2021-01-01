@@ -1,17 +1,17 @@
-#j'ai juste créé un main même si y a rien dedans pour l'instant
+import GraphSearchStrategies
 import affichage
+import etat
 import mission
 import plateau
 from robot import *
-import etat
-import GraphSearchStrategies
-activeMission = mission.multicolore
-initialState = etat.Etat(plateau.plateauJeu, robotRouge, robotJaune, robotVert, robotBleu, activeMission, 0)
+print("generation de l'etat initial...\n")
+initialState = etat.Etat(plateau.plateauJeu, robotRouge, robotJaune, robotVert, robotBleu, mission.activeMission, 0)
 
+print("recherche de solution...\n")
 GraphSearchStrategies.Astar(initialState, 1)
 affichage.window.mainloop()
 
-"""
+""""
 class Jeu(object):
     nbJoueur = 1
     difficulty = 1
@@ -37,8 +37,8 @@ print("2 : normal")
 print("3 : difficile")
 difficulty = input("Niveau de difficulté:")
 jeu = Jeu(nbJoueur,difficulty)
-"""
 
+"""
 
 
 

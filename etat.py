@@ -23,22 +23,32 @@ class Etat():
     def nextState(self):
         list = []
         # toute les position que peux prendre robotRouge
+        #Si le robot peut bouger vers la gauche
         if not self.plateau.plat[self.robotRouge.x][self.robotRouge.y].gauche and self.robotRouge.x > 0 and not self.isRobotHere(
                 self.robotRouge.x-1, self.robotRouge.y):
+            #on ajoute l'état ou le robot bouge vers la gauche à la listeet on augmente le cout de 1
             list.append(Etat(self.plateau, copy(self.robotRouge).gauche(self), self.robotJaune, self.robotVert,
                          self.robotBleu, self.mission, self.cost + 1))
+        # Si le robot peut bouger vers la droite
         if not self.plateau.plat[self.robotRouge.x][self.robotRouge.y].droit and self.robotRouge.x < 15 and not self.isRobotHere(
                 self.robotRouge.x+1, self.robotRouge.y):
+            # on ajoute l'état ou le robot bouge vers la droite à la liste et on augmente le cout de 1
             list.append(Etat(self.plateau, copy(self.robotRouge).droite(self), self.robotJaune, self.robotVert,
                          self.robotBleu, self.mission, self.cost + 1))
+        # Si le robot peut bouger vers le haut
         if not self.plateau.plat[self.robotRouge.x][self.robotRouge.y].haut and self.robotRouge.y > 0 and not self.isRobotHere(
                 self.robotRouge.x, self.robotRouge.y-1):
+            # on ajoute l'état ou le robot bouge vers le haut à la liste et on augmente le cout de 1
             list.append(Etat(self.plateau, copy(self.robotRouge).haut(self), self.robotJaune, self.robotVert,
                          self.robotBleu, self.mission, self.cost + 1))
+        # Si le robot peut bouger vers le bas
         if not self.plateau.plat[self.robotRouge.x][self.robotRouge.y].bas and self.robotRouge.y < 15 and not self.isRobotHere(
                 self.robotRouge.x, self.robotRouge.y+1):
+            # on ajoute l'état ou le robot bouge vers le bas à la liste et on augmente le cout de 1
             list.append(Etat(self.plateau, copy(self.robotRouge).bas(self), self.robotJaune, self.robotVert,
                          self.robotBleu, self.mission, self.cost + 1))
+
+        #on fait de meme pour chaque robots
 
         # toute les position que peux prendre robotJaune
         if not self.plateau.plat[self.robotJaune.x][self.robotJaune.y].gauche and self.robotJaune.x > 0 and not self.isRobotHere(

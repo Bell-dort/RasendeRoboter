@@ -28,27 +28,27 @@ def getStringPath(l):
         print(e.toString(), "\n\n")
 
 def Astar(initial_state,depth,occurence_test=True):
-    OL=[Node(initial_state,None)]
-    CL=[]
+    OL=[Node(initial_state,None)]   #on ajoute l'état initial à l'OpenList
+    CL=[]                           #on créé la CloseList
     n=0
-    while OL:
-        e=OL.pop(0)
-        #print(getStringPath(getPathFrom(e)))
-        if e.State.isFinalState() :
-            print(e.State.isFinalState())
-            print(getPathFrom(e), 'extending', n, 'nodes\n')
-            print(getStringPath(getPathFrom(e)))
-            break
+    while OL:           #tant que la liste n'est pas vide
+        e=OL.pop(0)     #on récupère la tete de liste
+        #print(getStringPath(getPathFrom(e)))   permet d'afficher chaque noeud cherché
+        if e.State.isFinalState():  #Si l'état est final
+            print(getPathFrom(e), 'extending', n, 'nodes\n')    #on affiche le chemin
+            print(getStringPath(getPathFrom(e)))        #on le traduit pour l'utilisateur
+            break       #on sort de la boucle
         else:
-            for i in range(depth):
-                next_states=e.State.nextState()
-                for s in next_states:
-                    if not occurence_test or s not in CL:
+            for i in range(depth):  #on effectue le nombre de fois de depth (profondeur)
+                next_states=e.State.nextState()     #on récupère les états suivants
+                for s in next_states:   #pour chaque état
+                    if not occurence_test or s not in CL:   #si l'état n'est pas dans la CloseList
                         n+=1
-                        node=Node(s,e)
-                        OL.append(node)
+                        node=Node(s,e)      #on créé un nouveau noeud
+                        OL.append(node)     #On ajoute le noeud à l'OpenList
                         if occurence_test:
-                            CL.append(s)
+                            CL.append(s)    #on ajoute le Noeud à la Close List
+            # on trie l'OpenList en fonction de l'Heuristique (ici la distance de Manhattan
             OL.sort(key=lambda state : state.State.manatDist + state.State.cost*1)
 
 def BFS(initial_state,occurence_test=True):
@@ -57,7 +57,7 @@ def BFS(initial_state,occurence_test=True):
     n=0
     while OL:
         e=OL.pop(0)
-        if e.State.isFinalState() or n>1024:
+        if e.State.isFinalState() or n == 4096 :
             print(e.State.isFinalState)
             print(getPathFrom(e), 'extending', n, 'nodes')
             print(getStringPath(getPathFrom(e)))
@@ -71,7 +71,6 @@ def BFS(initial_state,occurence_test=True):
                     OL.append(node)
                     if occurence_test:
                         CL.append(s)
-                    print(getStringPath(getPathFrom(node)))
 
 
 def DFS(initial_state,mission,occurence_test=True):
