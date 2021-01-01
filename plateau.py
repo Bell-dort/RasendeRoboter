@@ -54,28 +54,44 @@ class plateau():
 #Recherche de la case Multicouleur
         for i in range(8):
             for j in range(8):
-                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 3:
-                    self.plat[i][j+1]= caseMurHaut
-                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 0:
+                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 3 and self.plat[i][j+1] == caseVide:
+                    self.plat[i][j+1] = caseMurHaut
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 3:
+                    self.plat[i][j+1].haut = 1
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 0 and self.plat[i+1][j] == caseVide:
                     self.plat[i+1][j] = caseMurGauche
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 0:
+                    self.plat[i+1][j].gauche = 1
         for i in range(8, 16):
             for j in range(8):
-                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 3:
+                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 3 and self.plat[i][j+1] == caseVide:
                     self.plat[i][j+1] = caseMurHaut
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 3:
+                    self.plat[i][j+1].haut = 1
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 2 and self.plat[i+1][j] == caseVide:
+                    self.plat[i-1][j] = caseMurDroit
                 elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 2:
-                    self.plat[i+1][j] = caseMurDroit
+                    self.plat[i-1][j].droit = 1
         for i in range(8):
             for j in range(8, 16):
-                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 1:
-                    self.plat[i][j+1] = caseMurBas
-                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 0:
+                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 1 and self.plat[i][j+1] == caseVide:
+                    self.plat[i][j-1] = caseMurBas
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 1:
+                    self.plat[i][j-1].bas = 1
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 0 and self.plat[i+1][j] == caseVide:
                     self.plat[i+1][j] = caseMurGauche
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 0:
+                    self.plat[i+1][j].gauche = 1
         for i in range(8, 16):
             for j in range(8, 16):
-                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 1:
-                    self.plat[i][j+1] = caseMurBas
+                if self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 1 and self.plat[i][j+1] == caseVide:
+                    self.plat[i][j-1] = caseMurBas
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 1:
+                    self.plat[i][j-1].bas = 1
+                elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 2 and self.plat[i+1][j] == caseVide:
+                    self.plat[i-1][j] = caseMurDroit
                 elif self.plat[i][j] == caseMulticouleur and self.nbSwitchPlaque3 == 2:
-                    self.plat[i+1][j] = caseMurDroit
+                    self.plat[i-1][j].haut = 1
         # Défini les cases centrales au centre du plateau
         for i in range(7, 9):
             for j in range(7, 9):
