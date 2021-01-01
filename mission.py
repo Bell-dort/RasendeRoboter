@@ -28,5 +28,5 @@ losangeBleu = mission("blue", "losange")
 losangeVert = mission("green", "losange")
 losangeJaune = mission("yellow", "losange")
 
-multicolore = mission("purple", "")
+multicolore = mission("multicolore", "")
 vide = mission("", "")

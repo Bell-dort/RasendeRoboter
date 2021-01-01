@@ -5,7 +5,7 @@ import plateau
 from robot import *
 import etat
 import GraphSearchStrategies
-activeMission = mission.carreRouge
+activeMission = mission.multicolore
 initialState = etat.Etat(plateau.plateauJeu, robotRouge, robotJaune, robotVert, robotBleu, activeMission, 0)
 
 GraphSearchStrategies.Astar(initialState, 1)

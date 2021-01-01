@@ -68,6 +68,7 @@ class DrawCase(tkinter.Canvas):  # classe DrawCase dérivée de Canvas (permet d
                                       outline="")
 
 
+
 # -----------------affichage de chaque case---------------------------
 drawnCase = np.empty((16, 16), dtype=DrawCase)
 
