@@ -1,12 +1,15 @@
+import random
+
 class mission():
+    """docstring for mission"""
 
-	"""docstring for mission"""
-	def __init__(self, couleur, symbole): #constructeur mission
-		self.couleur = couleur
-		self.symbole = symbole
+    def __init__(self, couleur, symbole):  # constructeur mission
+        self.couleur = couleur
+        self.symbole = symbole
 
-	# def accessContenu(self):
-	# 	return self.symbole + " " + self.couleur
+# def accessContenu(self):
+# 	return self.symbole + " " + self.couleur
+
 
 triangleRouge = mission("red", "triangle")
 triangleBleu = mission("blue", "triangle")
@@ -30,3 +33,8 @@ losangeJaune = mission("yellow", "losange")
 
 multicolore = mission("multicolore", "")
 vide = mission("", "")
+
+activeMission = multicolore
+# activeMission = random.choice([triangleJaune,triangleRouge,triangleBleu,triangleVert,carreJaune,carreVert,carreRouge,
+# 							   carreBleu,losangeJaune,losangeVert,losangeRouge,losangeBleu,cercleJaune,cercleVert,cercleBleu,cercleRouge])
+

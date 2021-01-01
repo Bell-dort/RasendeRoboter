@@ -33,7 +33,7 @@ def Astar(initial_state,depth,occurence_test=True):
     n=0
     while OL:
         e=OL.pop(0)
-        print(getStringPath(getPathFrom(e)))
+        #print(getStringPath(getPathFrom(e)))
         if e.State.isFinalState() :
             print(e.State.isFinalState())
             print(getPathFrom(e), 'extending', n, 'nodes\n')

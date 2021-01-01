@@ -51,7 +51,7 @@ plaque2 = Plaque(
               np.array([caseVide, caseVide, caseVide, caseVide, caseVide, caseVide, caseMurDroit2, caseVide], dtype=Case),
               np.array([caseVide, caseVide, caseVide, caseVide, caseVide, caseVide, caseLosangeJaune, caseMurHaut2], dtype=Case),
               np.array([caseVide, caseTriangleVert, caseMurHaut2, caseVide, caseVide, caseVide, caseVide, caseVide], dtype=Case),
-              np.array([caseVide, caseMurGauche2, caseVide, caseMurBas2, caseMurHautDroit2, caseVide, caseVide, caseVide], dtype=Case),
+              np.array([caseVide, caseMurGauche2, caseVide, caseMurBas2, caseCercleRouge, caseVide, caseVide, caseVide], dtype=Case),
               np.array([caseVide, caseMurBas2, caseMurHaut2, caseVide, caseMurGauche2, caseVide, caseVide, caseVide], dtype=Case)], dtype=np.ndarray))
 
 plaque3 = Plaque(
