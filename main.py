@@ -6,9 +6,10 @@ from robot import *
 import etat
 import GraphSearchStrategies
 activeMission = mission.carreRouge
-initialState = etat.Etat(plateau.plateauJeu, robotRouge, robotJaune, robotVert, robotBleu, activeMission)
-# print(initialState.toString())
+initialState = etat.Etat(plateau.plateauJeu, robotRouge, robotJaune, robotVert, robotBleu, activeMission, 0)
+
 GraphSearchStrategies.Astar(initialState, 1)
+
 
 affichage.window.mainloop()
 

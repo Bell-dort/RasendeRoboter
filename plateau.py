@@ -15,10 +15,10 @@ class plateau():
         for i in range(4):
 
             choix = random.choice(self.liste)
-            print(choix)
+            #print(choix)
             self.liste.remove(choix)
             listeChangement[i] = choix
-            print(str(listeChangement[0]) + str(listeChangement[1]) + str(listeChangement[2]) + str(listeChangement[3]))
+            #print(str(listeChangement[0]) + str(listeChangement[1]) + str(listeChangement[2]) + str(listeChangement[3]))
 
         self.liste = listeChangement
 
@@ -34,10 +34,10 @@ class plateau():
         for k in range(random.randint(0, 3)):
             plaque4.switch90(4)
         self.listePlaque = [plaque1, plaque2, plaque3, plaque4]
-        print(str(self.liste[0]) + str(self.liste[1]) + str(self.liste[2]) + str(self.liste[3]))
+        #print(str(self.liste[0]) + str(self.liste[1]) + str(self.liste[2]) + str(self.liste[3]))
 
         self.elaborationPlateau()
-        print(str(self.liste[0]) + str(self.liste[1]) + str(self.liste[2]) + str(self.liste[3]))
+        #print(str(self.liste[0]) + str(self.liste[1]) + str(self.liste[2]) + str(self.liste[3]))
 
         for i in range(8):
             for j in range(8):

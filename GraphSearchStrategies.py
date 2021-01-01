@@ -33,7 +33,8 @@ def Astar(initial_state,depth,occurence_test=True):
     n=0
     while OL:
         e=OL.pop(0)
-        if e.State.isFinalState():
+        print(getStringPath(getPathFrom(e)))
+        if e.State.isFinalState() :
             print(e.State.isFinalState())
             print(getPathFrom(e), 'extending', n, 'nodes\n')
             print(getStringPath(getPathFrom(e)))
@@ -48,7 +49,7 @@ def Astar(initial_state,depth,occurence_test=True):
                         OL.append(node)
                         if occurence_test:
                             CL.append(s)
-            OL.sort(key=lambda state : state.State.manatDist)
+            OL.sort(key=lambda state : state.State.manatDist + state.State.cost*1)
 
 def BFS(initial_state,occurence_test=True):
     OL=[Node(initial_state,None)]
@@ -56,9 +57,10 @@ def BFS(initial_state,occurence_test=True):
     n=0
     while OL:
         e=OL.pop(0)
-        if e.State.isFinalState():
+        if e.State.isFinalState() or n>1024:
             print(e.State.isFinalState)
             print(getPathFrom(e), 'extending', n, 'nodes')
+            print(getStringPath(getPathFrom(e)))
             break
         else:
             next_states=e.State.nextState()
@@ -69,6 +71,7 @@ def BFS(initial_state,occurence_test=True):
                     OL.append(node)
                     if occurence_test:
                         CL.append(s)
+                    print(getStringPath(getPathFrom(node)))
 
 
 def DFS(initial_state,mission,occurence_test=True):
