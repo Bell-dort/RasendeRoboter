@@ -8,9 +8,11 @@ class mission():
         self.couleur = couleur
         self.symbole = symbole
 
+    def accessContenu(self):
+        return str(self.symbole) + " " + str(self.couleur)
 
-# def accessContenu(self):
-# 	return self.symbole + " " + self.couleur
+
+
 
 
 triangleRouge = mission("red", "triangle")
@@ -37,6 +39,5 @@ multicolore = mission("multicolore", "")
 vide = mission("", "")
 
 
-activeMission = random.choice(
-    [triangleJaune, triangleRouge, triangleBleu, triangleVert, carreJaune, carreVert, carreRouge,
-     carreBleu, losangeJaune, losangeVert, losangeRouge, losangeBleu, cercleJaune, cercleVert, cercleBleu, cercleRouge])
+
+

@@ -4,13 +4,6 @@ import mission
 import plaque
 import plateau
 from robot import *
-# Fenetre principale
-window = tkinter.Tk()
-window.wm_minsize(500, 500)
-
-fenetre = tkinter.Frame(window)  # crée une sous-fenetre dans la fentre
-
-
 class DrawCase(tkinter.Canvas):  # classe DrawCase dérivée de Canvas (permet de créer l'affichage des case)
     # parametres des cases
     wallColor = "grey"
@@ -18,7 +11,7 @@ class DrawCase(tkinter.Canvas):  # classe DrawCase dérivée de Canvas (permet d
     caseColor = "#CFC1B0"
     caseSize = 40
 
-    def __init__(self, master, case):
+    def __init__(self, master, case,activeMission):
         super(DrawCase, self).__init__(master, bd=-2, width=self.caseSize,
                                        height=self.caseSize)  # créé un canvas (élément de dessin)
         self.create_rectangle(0, 0, self.caseSize - 1, self.caseSize - 1,
@@ -38,7 +31,7 @@ class DrawCase(tkinter.Canvas):  # classe DrawCase dérivée de Canvas (permet d
         self.draw()
 
         if case.gauche and case.droit and case.haut and case.bas:
-            self.drawMission(mission.activeMission)
+            self.drawMission(activeMission)
 
 
 
@@ -97,25 +90,31 @@ class DrawCase(tkinter.Canvas):  # classe DrawCase dérivée de Canvas (permet d
             self.create_rectangle(self.wallSize + 1, self.caseSize / 2, self.caseSize / 2,
                                   self.caseSize - (self.wallSize + 1), fill="blue",
                                   outline="")
+def affichagePlateau(R,J,V,B,activeMission):
+    # Fenetre principale
+    window = tkinter.Tk()
+    window.wm_minsize(500, 500)
 
-# -----------------affichage de chaque case---------------------------
-drawnCase = np.empty((16, 16), dtype=DrawCase)
+    fenetre = tkinter.Frame(window)  # crée une sous-fenetre dans la fentre
 
-# for i in range(0, 8):
-#     for j in range(0, 8):
-#         DrawCase(fenetre, plaque.plaque4.element[j][i]).grid(row=i, column=j)
+    # -----------------affichage de chaque case---------------------------
+    drawnCase = np.empty((16, 16), dtype=DrawCase)
 
-
-for i in range(0, 16):
-    for j in range(0, 16):
-        drawnCase[j][i] = DrawCase(fenetre, plateau.plateauJeu.plat[j][i])
-        drawnCase[j][i].grid(row=i, column=j)
-
-#-------------------affichage des robots---------------------
-drawnCase[robotRouge.x][robotRouge.y].drawRobot(robotRouge)
-drawnCase[robotJaune.x][robotJaune.y].drawRobot(robotJaune)
-drawnCase[robotVert.x][robotVert.y].drawRobot(robotVert)
-drawnCase[robotBleu.x][robotBleu.y].drawRobot(robotBleu)
+    # for i in range(0, 8):
+    #     for j in range(0, 8):
+    #         DrawCase(fenetre, plaque.plaque4.element[j][i]).grid(row=i, column=j)
 
 
-fenetre.pack(expand=True)
+    for i in range(0, 16):
+        for j in range(0, 16):
+            drawnCase[j][i] = DrawCase(fenetre, plateau.plateauJeu.plat[j][i],activeMission)
+            drawnCase[j][i].grid(row=i, column=j)
+
+    #-------------------affichage des robots---------------------
+    drawnCase[R.x][R.y].drawRobot(R)
+    drawnCase[J.x][J.y].drawRobot(J)
+    drawnCase[V.x][V.y].drawRobot(V)
+    drawnCase[B.x][B.y].drawRobot(B)
+
+    fenetre.pack(expand=True)
+    window.mainloop()

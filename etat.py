@@ -2,7 +2,7 @@ from robot import Robot
 from copy import copy
 import math
 
-
+global cout
 class Etat():
     def __init__(self, plateau, robotRouge, robotJaune, robotVert, robotBleu, mission, cost):
         # le plateau actuel et les robots (avec leurs positions)
@@ -105,7 +105,6 @@ class Etat():
                          copy(self.robotBleu).bas(self), self.mission, self.cost + 1))
 
         return list
-
     def isFinalState(self):
         coord = self.plateau.coordMission(self.mission)
         if self.mission.couleur == "red":
@@ -151,7 +150,6 @@ class Etat():
                        abs(coord[0] - self.robotJaune.x) + abs(coord[1] - self.robotJaune.y),
                        abs(coord[0] - self.robotVert.x) + abs(coord[1] - self.robotVert.y),
                        abs(coord[0] - self.robotBleu.x) + abs(coord[1] - self.robotBleu.y))
-
 
     def toString(self):
         return "cout : {}  heuristique : {}\n            : x  y \nRobot Rouge : {},{}\nRobot Jaune : {},{}\nRobot Vert  : {},{}\nRobot Bleu  : {},{}"\

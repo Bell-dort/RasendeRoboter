@@ -37,7 +37,8 @@ def Astar(initial_state,depth,occurence_test=True):
         if e.State.isFinalState():  #Si l'état est final
             print(getPathFrom(e), 'extending', n, 'nodes\n')    #on affiche le chemin
             print(getStringPath(getPathFrom(e)))        #on le traduit pour l'utilisateur
-            break       #on sort de la boucle
+            return e.State
+            #break       #on sort de la boucle
         else:
             for i in range(depth):  #on effectue le nombre de fois de depth (profondeur)
                 next_states=e.State.nextState()     #on récupère les états suivants
