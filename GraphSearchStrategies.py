@@ -35,10 +35,12 @@ def Astar(initial_state,depth,occurence_test=True):
         e=OL.pop(0)     #on récupère la tete de liste
         #print(getStringPath(getPathFrom(e)))   permet d'afficher chaque noeud cherché
         if e.State.isFinalState():  #Si l'état est final
-            print(getPathFrom(e), 'extending', n, 'nodes\n')    #on affiche le chemin
-            print(getStringPath(getPathFrom(e)))        #on le traduit pour l'utilisateur
-            return e.State
+            #print(getPathFrom(e), 'extending', n, 'nodes\n')    #on affiche le chemin
+            #print(getStringPath(getPathFrom(e)))        #on le traduit pour l'utilisateur
+            return e
             #break       #on sort de la boucle
+        elif n > 10000:
+            return False
         else:
             for i in range(depth):  #on effectue le nombre de fois de depth (profondeur)
                 next_states=e.State.nextState()     #on récupère les états suivants
